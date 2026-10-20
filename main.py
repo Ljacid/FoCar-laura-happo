@@ -98,6 +98,9 @@ def vilkutaLed(paalla, pois):
         sleep(pois)
 
 # Kolmepistekäännös
+# Odota hetki ennen ajoa
+sleep(10)
+
 # Aja eteenpäin metri
 eteenpain(1, 1, 32767, 4)
 stop(0, 1)
