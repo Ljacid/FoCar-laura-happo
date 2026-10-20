@@ -17,7 +17,7 @@
 from machine import Pin, PWM
 from time import sleep
 
-# Moottori A (oikea)
+# Moottori A (oikea)  
 e1 = PWM(Pin(28))
 m1 = Pin(27, Pin.OUT)
 # Moottori B (vasen)
