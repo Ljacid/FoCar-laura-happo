@@ -13,26 +13,25 @@
 # 0 taaksepäin
 # 1 eteenpäin
 
+# Kirjastojen lisäys ja määritykset
+from machine import Pin, PWM
+from time import sleep
+
+# Moottori A (oikea)
+e1 = PWM(Pin(28))
+m1 = Pin(27, Pin.OUT)
+# Moottori B (vasen)
+e2 = PWM(Pin(26))
+m2 = Pin(22, Pin.OUT)
+
+# Aseta PWM-taajuus 1000 Hz
+e1.freq(1000)
+e2.freq(1000)
+
+# Luodaan led olio
+led = Pin("LED", Pin.OUT)
+
 # Määritä focarissa tarvittavat funktiot
-def lisaaKirjastot():
-    from machine import Pin, PWM
-    from time import sleep
-
-def maaritaMoottorit():
-    # Moottori A (oikea)
-    e1 = PWM(Pin(28))
-    m1 = Pin(27, Pin.OUT)
-    # Moottori B (vasen)
-    e2 = PWM(Pin(26))
-    m2 = Pin(22, Pin.OUT)
-    # Aseta PWM-taajuus 1000 Hz
-    e1.freq(1000)
-    e2.freq(1000)
-
-def luoLed():
-    # Luodaan led olio
-    led = Pin("LED", Pin.OUT)
-
 def kaannyVasen(suuntaO, suuntaV, nopeus, aika):
     # Eteenpäin
     m1.value(suuntaO)
@@ -85,7 +84,7 @@ def stop(nopeus, aika):
     # Odota yksi sekunti moottoreiden pysähtymistä
     sleep(1)
 
-def led(paalla, pois):
+def vilkutaLed(paalla, pois):
     # Vilkutetaan lediä halutusti
     while True:
         led.on()
